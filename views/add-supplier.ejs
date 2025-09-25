@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Добавить поставщика</title>
+</head>
+<body>
+    <h1>Добавить поставщика</h1>
+    <form action="/add-supplier" method="POST">
+        <label for="name">Название поставщика:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="contact">Контактная информация</label>
+        <input type="text" id="contact" name="contact">
+        <button type="submit">Добавить</button>
+    </form>
+</body>
+</html>

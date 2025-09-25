@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Добавить продукт</title>
+</head>
+
+<body>
+    <h1>Добавить продукт</h1>
+    <form action="/add-product" method="POST">
+
+        <label for="name">Название продукта:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="price">Стоимость продукта:</label>
+        <input type="number" id="price" name="price" step="0.01" required>
+
+        <label for="category">Категория продукта:</label>
+        <select id="category" name="categoryId" required>
+            <% categories.forEach(category => { %> 
+                <option value="<%= category.id %>"><%= category.name %></option>
+            <% }) %>
+        </select>
+
+        <label for="supplier">Поставщик продукта:</label>
+        <select id="supplier" name="supplierId" required>
+            <% suppliers.forEach(supplier => { %> 
+                <option value="<%= supplier.id %>"><%= supplier.name %></option>
+            <% }) %>
+        </select>
+
+        <button type="submit">Добавить</button>
+    </form>
+</body>
+
+</html>

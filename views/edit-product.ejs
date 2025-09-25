@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Изменить продукт</title>
+</head>
+
+<body>
+    <h1>Изменить продукт</h1>
+    <form action="/edit-product/<%= product.id %>" method="POST">
+        <label for="name">Название продукта:</label>
+        <input type="text" id="name" name="name" value="<%= product.name %>" required>
+
+        <label for="price">Стоимость продукта:</label>
+        <input type="number" id="price" name="price" value="<%= product.price %>" step="0.01" required>
+
+        <label for="category">Категория продукта:</label>
+        <select id="category" name="categoryId">
+            <% categories.forEach(category => { %>
+                <option value="<%= category.id %>" <%= category.id === product.CategoryId ? 'selected' : '' %>><%= category.name %></option>
+                <% }); %>
+        </select>
+
+        <label for="supplier">Поставщик продукта:</label>
+        <select id="supplier" name="supplierId">
+            <% suppliers.forEach(supplier => { %>
+                <option value="<%= supplier.id %>" <%= supplier.id === product.SupplierId ? 'selected' : '' %>><%= supplier.name %></option>
+                <% }) %>
+        </select>
+
+        <button type="submit">Сохранить изменение</button>
+    </form>
+</body>
+
+</html>
